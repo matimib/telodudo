@@ -26,7 +26,7 @@ function PlayersOnTable(props) {
         {myPlayers.map((player) => {
           return (
             <div className='col'>
-              <div className='row'>
+              <div className='row' key={player.id}>
                 {player.name} id-{player.id}
               </div>
               {player.lifes.map(() => {
@@ -36,6 +36,7 @@ function PlayersOnTable(props) {
                   </div>
                 )
               })}
+              {props.turn === player.id ? <h1>Turn</h1> : null}
             </div>
           )
         })}
